@@ -1,35 +1,38 @@
-import Test from '../components/Test.vue'
+//components
+
+import NotFund from '../views/NotFound.vue'
+import CoachDetail from '../views/coaches/CoachDetail.vue'
+import CoachsList from '../views/coaches/CoachesList.vue'
+import CoachRegistration from '../views/coaches/CoachRegistration.vue'
+import RequestRecived from '../views/requests/RequestsRecived.vue'
+import ContactCoach from '../views/requests/ContactCoach.vue'
 
 const routes = [{
-        path: '/test',
-        component: Test
-    },
-    {
         path: '/',
         redirect: '/coaches'
     },
     {
         path: '/coaches',
-        component: null,
-        children: [
-            { path: 'contact', component: null } // /coaches/id/contact
-        ]
+        component: CoachsList,
     },
     {
         path: '/coaches/:id',
-        component: null
+        component: CoachDetail,
+        children: [
+            { path: 'contact', component: ContactCoach } // /coaches/id/contact
+        ]
     },
     {
         path: '/register',
-        component: null
+        component: CoachRegistration
     },
     {
         path: '/requests',
-        component: null
+        component: RequestRecived
     },
     {
         path: '/:notFound(.*)',
-        component: null
+        component: NotFund
     }
 
 ];
