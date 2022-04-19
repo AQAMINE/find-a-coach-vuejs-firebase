@@ -1,4 +1,4 @@
-import mutatations from './mutations';
+import mutations from './mutations';
 import actions from './actions';
 import getters from './getters'
 
@@ -26,7 +26,7 @@ export default {
 
         }
     },
-    mutatations,
+    mutations,
     actions,
     getters
 }

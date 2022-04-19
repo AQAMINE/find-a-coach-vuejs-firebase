@@ -6,7 +6,14 @@ export default createStore({
     modules: {
         coaches: coachesModule,
     },
-    state: {},
+    state: {
+        userId: 'c3'
+    },
+    getters: {
+        userId(state) {
+            return state.userId;
+        }
+    },
     mutations: {},
     actions: {},
 })

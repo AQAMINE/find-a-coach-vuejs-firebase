@@ -37,6 +37,7 @@
 
 <script>
 export default {
+    emits: ['save-data'],
     data(){
         return {
             firstname: '',
@@ -57,7 +58,12 @@ export default {
                 areas: this.areas
             };
 
-            console.table(formData);
+            //pass this object to the main component (CoachRegistration)
+            //==> use it like this 
+            //saveData(formData){
+            //     --------code
+            // }
+            this.$emit('save-data',formData);
         }
     }
 }
