@@ -1,6 +1,6 @@
 <template>
     <span class="badge" :class="type">
-        {{text}}
+        {{ text }}
     </span>
 </template>
 
