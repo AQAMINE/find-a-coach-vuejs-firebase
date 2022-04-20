@@ -9,9 +9,9 @@ const app = createApp(App);
 
 
 //Global Components
-import BaseCard from './components/layout/ui/BaseCard.vue';
-import BaseButton from './components/layout/ui/BaseButton.vue';
-import BaseBadge from './components/layout/ui/BaseBadge.vue';
+import BaseCard from './components/ui/BaseCard.vue';
+import BaseButton from './components/ui/BaseButton.vue';
+import BaseBadge from './components/ui/BaseBadge.vue';
 app.component('base-button', BaseButton);
 app.component('base-card', BaseCard);
 app.component('base-badge', BaseBadge);
