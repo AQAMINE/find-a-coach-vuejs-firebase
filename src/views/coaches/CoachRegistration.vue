@@ -16,6 +16,10 @@ export default {
         saveData(data){
             this.$store.dispatch('coaches/registerCoach', data);
             //this.$router.push({path: '/'});
+                Toast.fire({
+                icon: 'success',
+                title: 'Added successfully'
+            });
             this.$router.replace('/coaches'); //diff between replace and push is back to the route comme from 
         }
     },

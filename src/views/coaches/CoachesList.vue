@@ -63,12 +63,12 @@ components: { CoachItem, CoachFilter },
         },
         isCoach(){
             return this.$store.getters['coaches/isCoach'];
-        }
+        },
     },
     methods:{
         setFilter(updatedFilters){
             this.activeFilters = updatedFilters;
-        }
+        },
     }
 }
 </script>
