@@ -22,7 +22,10 @@ export default {
         });
 
     },
-    async loadCoaches(context) {
+    async loadCoaches(context, payload) {
+        if (!payload.forceRefresh && !context.getters.shouldUpdate) {
+            return;
+        }
         const coaches = [];
         await window.axios.get(`https://find-a-coach-vuejs-firebase-default-rtdb.firebaseio.com/coaches.json`)
             .then(response => {
@@ -41,6 +44,7 @@ export default {
                     coaches.push(coach);
                 }
                 context.commit('setCoaches', coaches);
+                context.commit('setFetchTimesTamp');
             }).catch(error => context.commit('setErrors', error));
 
 

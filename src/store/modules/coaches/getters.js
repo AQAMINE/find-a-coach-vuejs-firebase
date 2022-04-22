@@ -15,5 +15,14 @@ export default {
     },
     errors(state) {
         return state.errors;
+    },
+    shouldUpdate(state) {
+        const lastFetch = state.lastFetch;
+        if (!lastFetch) {
+            return true;
+        }
+        const currentTimeStamp = new Date().getTime();
+        //this calcule means last fetch more than 1 minute so its return true
+        return (currentTimeStamp - lastFetch) / 1000 > 60;
     }
 };

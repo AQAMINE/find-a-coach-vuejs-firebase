@@ -7,6 +7,9 @@ export default {
     },
     setErrors(state, error) {
         state.errors = error;
+    },
+    setFetchTimesTamp(state) {
+        state.lastFetch = new Date().getTime();
     }
 
 };
