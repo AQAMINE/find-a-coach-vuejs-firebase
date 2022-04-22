@@ -29,7 +29,7 @@ export default {
     props: ['id'],
     data(){
         return{
-            selectedCoach: null
+            selectedCoach: null, 
         };
     },
     computed:{
@@ -37,7 +37,8 @@ export default {
             return this.selectedCoach.firstName + ' ' + this.selectedCoach.lastName;
         },
         contactLink(){
-            return this.$route.path + '/' + this.id + '/contact';
+            return this.$route.path  + '/contact';
+            // return this.$route.path + '/' + this.id + '/contact';
         },
         areas(){
             return this.selectedCoach.areas;

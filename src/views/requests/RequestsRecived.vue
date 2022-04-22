@@ -1,5 +1,4 @@
 <template>
-
     <section>
         <base-card>
             <header>
