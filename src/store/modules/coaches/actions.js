@@ -21,9 +21,9 @@ export default {
         });
 
     },
-    loadCoaches(context) {
+    async loadCoaches(context) {
         const coaches = [];
-        window.axios.get(`https://find-a-coach-vuejs-firebase-default-rtdb.firebaseio.com/coaches.json`)
+        await window.axios.get(`https://find-a-coach-vuejs-firebase-default-rtdb.firebaseio.com/coaches.json`)
             .then(response => {
 
                 const responseData = response.data;
