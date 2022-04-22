@@ -1,4 +1,7 @@
 <template>
+    <base-dialog :show="!!error" title="An error occurred!" @close="handlError">
+        <p>{{error}}</p>
+    </base-dialog>
     <section>
         <coach-filter @change-filter="setFilter"></coach-filter>
     </section>
@@ -45,6 +48,7 @@ components: { CoachItem, CoachFilter  },
                 career: true
             },
             isLoading:false,
+            error:null
         };
     },
     computed:{
@@ -79,9 +83,19 @@ components: { CoachItem, CoachFilter  },
         },
         async loadCoaches(){
                 this.isLoading = true;
-                await this.$store.dispatch('coaches/loadCoaches');
+                try{
+                    await this.$store.dispatch('coaches/loadCoaches');
+                }catch(error){
+                    error;
+                }
+                this.error = this.$store.getters['coaches/errors'];
                 this.isLoading = false;
+        },
+        handlError(){
+            return this.error = false;
         }
+        
+        
     }
 }
 </script>

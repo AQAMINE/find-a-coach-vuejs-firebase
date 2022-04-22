@@ -23,6 +23,7 @@ export default {
                     hourlyRate: 30
                 }
             ],
+            errors: null
 
         }
     },

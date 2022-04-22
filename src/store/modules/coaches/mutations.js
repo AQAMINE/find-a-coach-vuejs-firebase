@@ -4,6 +4,9 @@ export default {
     },
     setCoaches(state, payload) {
         state.coaches = payload;
+    },
+    setErrors(state, error) {
+        state.errors = error;
     }
 
 };

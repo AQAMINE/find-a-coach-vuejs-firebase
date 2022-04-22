@@ -12,5 +12,8 @@ export default {
         const coaches = getters.coaches;
         const userId = rootGetters.userId; //rootGetters ==> getters of the index file the main store file 
         return coaches.some(coach => coach.id === userId);
+    },
+    errors(state) {
+        return state.errors;
     }
 };

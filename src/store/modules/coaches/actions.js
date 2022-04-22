@@ -40,7 +40,8 @@ export default {
                     coaches.push(coach);
                 }
                 context.commit('setCoaches', coaches);
-            }).catch(error => console.log(error.response.data.errors));
+            }).catch(error => context.commit('setErrors', error));
+
 
 
 
