@@ -7,6 +7,7 @@ Running my Code If you want to run this code, you need to follow these steps:
 🤞🏼🤞🏼#Run "npm run lint" Lints and fixes files
 
 --------------⚙️Firebase Realtime Database rules--------------
+<br>
 {
   "rules": {
     "coaches":{
@@ -21,7 +22,7 @@ Running my Code If you want to run this code, you need to follow these steps:
     //".write": "now < 1653001200000",  // 2022-5-20
   }
 }
-
+<br>
 
 <img src="https://repository-images.githubusercontent.com/482132881/f14d360e-f0b2-4f4d-923f-a652b003d62f"/>
 
