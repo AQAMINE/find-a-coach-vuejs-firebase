@@ -3,5 +3,8 @@ export default {
         state.token = payload.token;
         state.userId = payload.userId;
         state.tokenExpiration = payload.tokenExpiration;
+    },
+    seetErrors(state, payload) {
+        state.errors = payload;
     }
 }

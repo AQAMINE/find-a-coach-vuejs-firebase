@@ -1,7 +1,8 @@
 <template>
-    
     <base-card>
-        <form @submit.prevent="submitForm">
+        <base-spinner v-if="isLoading"></base-spinner>
+        <form v-else @submit.prevent="submitForm">
+            <p v-if="getErrors">Email already exists</p>
             <div class="form-control">
                 <label for="email">Email</label>
                 <input type="email" id="email" v-model.trim="email">
@@ -26,7 +27,9 @@ export default {
             email: '',
             password: '',
             fromIsValid: true,
-            mode: 'login'
+            mode: 'login',
+            isLoading : false,
+            errors : null
         }
     },
     computed:{
@@ -43,10 +46,14 @@ export default {
             }else{
                 return 'Login instead'
             }
+        },
+        getErrors(){
+            return this.$store.getters['getErrors'] && this.mode=='login' ? 'Email or password invalid!' : this.$store.getters['getErrors'] && this.mode=='signup' ? 'Email already exists' : null ;
         }
+
     },
     methods:{
-        submitForm(){
+        async submitForm(){
             this.fromIsValid = true;
             if(this.email === '' || !this.email.includes('@') || this.password.length < 6){
                 return this.fromIsValid = false;
@@ -55,11 +62,14 @@ export default {
             if(this.mode === 'login'){
                 //...
             }else{
-                this.$store.dispatch('signup',{
+                this.isLoading = true,
+                await this.$store.dispatch('signup',{
                     email: this.email,
                     password: this.password
                 });
+                this.isLoading = false
             }
+            
 
         },
         switchAuthMode(){

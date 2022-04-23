@@ -6,7 +6,8 @@ export default {
     state: {
         userId: null,
         token: null,
-        tokenExpiration: null
+        tokenExpiration: null,
+        errors: null
     },
     mutations,
     actions,

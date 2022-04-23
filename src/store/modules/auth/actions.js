@@ -17,7 +17,7 @@ export default {
                     tokenExpiration: responseData.expiresIn
                 })
             })
-            .catch(error => console.log(error));
+            .catch(error => context.commit('seetErrors', error));
 
     }
 }
