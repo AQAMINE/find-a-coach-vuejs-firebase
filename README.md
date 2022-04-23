@@ -6,7 +6,7 @@ Running my Code If you want to run this code, you need to follow these steps:
 3. Run "npm run serve" to bring up the development server, view the app at localhost:8080 (or whichever port is shown in your terminal)
 🤞🏼🤞🏼#Run "npm run lint" Lints and fixes files
 
-##--------------⚙️Firebase Realtime Database rules⚙️--------------
+### ⚙️ Firebase Realtime Database rules ⚙️
 ```
 
 {
