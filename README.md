@@ -25,6 +25,11 @@ Running my Code If you want to run this code, you need to follow these steps:
 }
 ```
 
+### You must activate firebase authentication from your account dashboard - Provider (Email/Password)
+```
+https://firebase.google.com/docs/reference/rest/auth
+```
+
 <img src="https://repository-images.githubusercontent.com/482132881/f14d360e-f0b2-4f4d-923f-a652b003d62f"/>
 
 
