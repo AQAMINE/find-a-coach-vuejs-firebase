@@ -4,7 +4,7 @@
         <form @submit.prevent="submitForm">
             <div class="form-control">
                 <label for="email">Email</label>
-                <input type="email" id="email" v-model.trim="emial">
+                <input type="email" id="email" v-model.trim="email">
             </div>
             <div class="form-control">
                 <label for="password">Password</label>
@@ -23,7 +23,7 @@
 export default {
     data(){
         return {
-            emial: '',
+            email: '',
             password: '',
             fromIsValid: true,
             mode: 'login'
@@ -48,10 +48,18 @@ export default {
     methods:{
         submitForm(){
             this.fromIsValid = true;
-            if(this.emial === '' || !this.emial.includes('@') || this.password.length < 6){
+            if(this.email === '' || !this.email.includes('@') || this.password.length < 6){
                 return this.fromIsValid = false;
             }
             //form validated send http request to the server now
+            if(this.mode === 'login'){
+                //...
+            }else{
+                this.$store.dispatch('signup',{
+                    email: this.email,
+                    password: this.password
+                });
+            }
 
         },
         switchAuthMode(){
