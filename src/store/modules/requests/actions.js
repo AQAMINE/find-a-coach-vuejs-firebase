@@ -25,9 +25,9 @@ export default {
     async fetchRequests(context) {
         //get Curent User Id 
         const coachId = context.rootGetters.userId;
-
+        const token = context.rootGetters.token;
         const requests = [];
-        await window.axios.get(`https://find-a-coach-vuejs-firebase-default-rtdb.firebaseio.com/requests/${coachId}.json`)
+        await window.axios.get(`https://find-a-coach-vuejs-firebase-default-rtdb.firebaseio.com/requests/${coachId}.json?auth=` + token)
             .then(response => {
 
                 const responseData = response.data;

@@ -4,5 +4,8 @@ export default {
     },
     getErrors(state) {
         return state.errors;
+    },
+    token(state) {
+        return state.token;
     }
 }

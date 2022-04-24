@@ -9,8 +9,9 @@ export default {
             hourlyRate: data.rate,
             areas: data.areas
         };
+        const token = context.rootGetters.token;
         //We are using PUT method to update or create coach if id exist update the coach else create it 
-        window.axios.put(`https://find-a-coach-vuejs-firebase-default-rtdb.firebaseio.com/coaches/${userId}.json`, CoachData)
+        window.axios.put(`https://find-a-coach-vuejs-firebase-default-rtdb.firebaseio.com/coaches/${userId}.json?auth=` + token, CoachData)
             .then( /*({ data }) => (console.log(data))*/ )
             .catch(error => console.log(error.response.data.errors));
 

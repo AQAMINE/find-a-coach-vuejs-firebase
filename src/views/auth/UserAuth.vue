@@ -2,7 +2,7 @@
     <base-card>
         <base-spinner v-if="isLoading"></base-spinner>
         <form v-else @submit.prevent="submitForm">
-            <p v-if="getErrors">Email already exists</p>
+            <p v-if="getErrors">{{getErrors}}</p>
             <div class="form-control">
                 <label for="email">Email</label>
                 <input type="email" id="email" v-model.trim="email">
@@ -48,7 +48,8 @@ export default {
             }
         },
         getErrors(){
-            return this.$store.getters['getErrors'] && this.mode=='login' ? 'Email or password invalid!' : this.$store.getters['getErrors'] && this.mode=='signup' ? 'Email already exists' : null ;
+            const errors = this.$store.getters['getErrors'];
+            return errors && this.mode=='login' ? 'Email or password invalid!' : errors && this.mode=='signup' ? 'Email already exists' : null ;
         }
 
     },
@@ -59,14 +60,17 @@ export default {
                 return this.fromIsValid = false;
             }
             //form validated send http request to the server now
-            if(this.mode === 'login'){
-                //...
-            }else{
-                this.isLoading = true,
-                await this.$store.dispatch('signup',{
+            const actionPayload = {
                     email: this.email,
                     password: this.password
-                });
+                };
+            if(this.mode === 'login'){
+                this.isLoading = true;
+                await this.$store.dispatch('login',actionPayload);
+                this.isLoading = false
+            }else{
+                this.isLoading = true,
+                await this.$store.dispatch('signup',actionPayload);
                 this.isLoading = false
             }
             
