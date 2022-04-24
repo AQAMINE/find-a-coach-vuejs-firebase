@@ -7,5 +7,9 @@ export default {
     },
     token(state) {
         return state.token;
+    },
+    isAuthenticated(state) {
+        //!! to convert value to a boolen 
+        return !!state.token;
     }
 }
