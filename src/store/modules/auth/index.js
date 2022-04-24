@@ -7,7 +7,7 @@ export default {
         userId: null,
         token: null,
         tokenExpiration: null,
-        errors: null
+        errors: ''
     },
     mutations,
     actions,

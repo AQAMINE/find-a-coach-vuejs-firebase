@@ -29,7 +29,7 @@ export default {
             fromIsValid: true,
             mode: 'login',
             isLoading : false,
-            errors : null
+            errors : ''
         }
     },
     computed:{
@@ -49,13 +49,17 @@ export default {
         },
         getErrors(){
             const errors = this.$store.getters['getErrors'];
-            return errors && this.mode=='login' ? 'Email or password invalid!' : errors && this.mode=='signup' ? 'Email already exists' : null ;
+            return errors && this.mode=='login' ? 'Email or password invalid!' : errors && this.mode=='signup' ? 'Email already exists' : '' ;
         }
 
     },
     methods:{
         async submitForm(){
+            //rets
+            this.$store.commit('seetErrors' , '');
             this.fromIsValid = true;
+
+
             if(this.email === '' || !this.email.includes('@') || this.password.length < 6){
                 return this.fromIsValid = false;
             }
@@ -64,6 +68,8 @@ export default {
                     email: this.email,
                     password: this.password
                 };
+
+                
             if(this.mode === 'login'){
                 this.isLoading = true;
                 await this.$store.dispatch('login',actionPayload);
@@ -73,6 +79,13 @@ export default {
                 await this.$store.dispatch('signup',actionPayload);
                 this.isLoading = false;
             }
+
+            const redirectUrl = '/' + (this.$route.query.redirect || 'coaches');
+            //if no errors go to dashboard
+            if(!this.$store.getters.getErrors){
+                this.$router.replace(redirectUrl); 
+            } 
+            
 
         },
         switchAuthMode(){

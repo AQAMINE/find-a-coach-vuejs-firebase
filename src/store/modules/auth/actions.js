@@ -12,7 +12,9 @@ export default {
                     token: responseData.idToken,
                     userId: responseData.localId,
                     tokenExpiration: responseData.expiresIn
-                })
+
+                });
+
             })
             .catch(error => context.commit('seetErrors', error));
 
@@ -41,7 +43,7 @@ export default {
             token: null,
             userId: null,
             tokenExpiration: null,
-            errors: null,
+            errors: '',
         })
     }
 }
