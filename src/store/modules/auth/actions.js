@@ -35,6 +35,13 @@ export default {
                 })
             })
             .catch(error => context.commit('seetErrors', error));
-
+    },
+    logout(context) {
+        context.commit('setUser', {
+            token: null,
+            userId: null,
+            tokenExpiration: null,
+            errors: null,
+        })
     }
 }

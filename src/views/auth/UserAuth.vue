@@ -67,13 +67,12 @@ export default {
             if(this.mode === 'login'){
                 this.isLoading = true;
                 await this.$store.dispatch('login',actionPayload);
-                this.isLoading = false
+                this.isLoading = false;
             }else{
                 this.isLoading = true,
                 await this.$store.dispatch('signup',actionPayload);
-                this.isLoading = false
+                this.isLoading = false;
             }
-            
 
         },
         switchAuthMode(){
