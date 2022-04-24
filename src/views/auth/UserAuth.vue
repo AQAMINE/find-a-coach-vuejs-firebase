@@ -80,6 +80,7 @@ export default {
                 this.isLoading = false;
             }
 
+            //to redirect into register as a coach page or coaches 
             const redirectUrl = '/' + (this.$route.query.redirect || 'coaches');
             //if no errors go to dashboard
             if(!this.$store.getters.getErrors){

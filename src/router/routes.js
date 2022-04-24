@@ -26,15 +26,18 @@ const routes = [{
     },
     {
         path: '/register',
-        component: CoachRegistration
+        component: CoachRegistration,
+        meta: { requiresAuth: true }
     },
     {
         path: '/requests',
-        component: RequestRecived
+        component: RequestRecived,
+        meta: { requiresAuth: true }
     },
     {
         path: '/auth',
-        component: UserAuth
+        component: UserAuth,
+        meta: { requiresUnauth: true }
     },
     {
         path: '/:notFound(.*)',
@@ -42,5 +45,7 @@ const routes = [{
     }
 
 ];
+
+
 
 export default routes;
