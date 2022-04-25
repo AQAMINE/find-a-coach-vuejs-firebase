@@ -16,6 +16,7 @@
 <script>
 export default {
     computed:{
+        //auth
         isLoggedIn(){
             return this.$store.getters.isAuthenticated;
         },
