@@ -1,4 +1,4 @@
-# find-a-coach-vuejs-firebase
+# find a coach vuejs firebase
 Running my Code If you want to run this code, you need to follow these steps:
 
 1. You must install nodejs from https://nodejs.org/en/
