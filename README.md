@@ -30,7 +30,7 @@ Running my Code If you want to run this code, you need to follow these steps:
 https://firebase.google.com/docs/reference/rest/auth
 ```
 
-<img src="https://repository-images.githubusercontent.com/482132881/f14d360e-f0b2-4f4d-923f-a652b003d62f"/>
+<img src="https://repository-images.githubusercontent.com/482132881/97a633dd-3f58-48d4-b7c8-f6b010da8661"/>
 
 
 ## Project setup
