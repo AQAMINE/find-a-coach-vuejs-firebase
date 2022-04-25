@@ -7,7 +7,7 @@
             </base-card>
         </section>
         <section>
-            <base-card>
+            <base-card v-if="isLoggedIn">
                 <header>
                     <h2>Interested? Reach out now!</h2>
                     <base-button link :to="contactLink">Contact</base-button>
@@ -48,7 +48,11 @@ export default {
         },
         description(){
             return this.selectedCoach.description;
-        }
+        },
+        //auth
+        isLoggedIn(){
+            return this.$store.getters.isAuthenticated;
+        },
     },
     created(){
         this.selectedCoach = this.$store.getters['coaches/coaches'].find(coach => coach.id === this.id);

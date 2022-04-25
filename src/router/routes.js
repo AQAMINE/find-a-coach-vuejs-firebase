@@ -1,12 +1,27 @@
 //components
-
-import NotFund from '../views/NotFound.vue'
-import CoachDetail from '../views/coaches/CoachDetail.vue'
 import CoachsList from '../views/coaches/CoachesList.vue'
-import CoachRegistration from '../views/coaches/CoachRegistration.vue'
-import RequestRecived from '../views/requests/RequestsRecived.vue'
-import ContactCoach from '../views/requests/ContactCoach.vue'
-import UserAuth from '../views/auth/UserAuth.vue';
+
+
+//import this component just when we needed 
+const NotFund = () =>
+    import ('../views/NotFound.vue');
+
+const CoachDetail = () =>
+    import ('../views/coaches/CoachDetail.vue');
+
+const CoachRegistration = () =>
+    import ('../views/coaches/CoachRegistration.vue');
+
+const ContactCoach = () =>
+    import ('../views/requests/ContactCoach.vue');
+
+const RequestRecived = () =>
+    import ('../views/requests/RequestsRecived.vue');
+
+const UserAuth = () =>
+    import ('../views/auth/UserAuth.vue');
+
+
 
 const routes = [{
         path: '/',

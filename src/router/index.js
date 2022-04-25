@@ -2,6 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import routes from './routes.js'
 import store from '../store/index'
 
+
+
+
 // const routes = [{
 //         path: '/coaches',
 //         component: null
@@ -17,6 +20,7 @@ const router = createRouter({
     routes
 })
 
+//Auth
 router.beforeEach(function(to, _, next) {
     if (to.meta.requiresAuth && !store.getters.isAuthenticated) {
         next('/auth');
